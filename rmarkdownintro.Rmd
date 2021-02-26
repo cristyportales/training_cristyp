@@ -1,0 +1,45 @@
+---
+title: "My favorite foods"
+output: html_document
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+```
+
+## Intro
+
+* read in and reference data source
+
+```{r intro, message=FALSE}
+bg_chem <- read_csv("BGchem2008data.csv")
+```
+
+
+## Analysis
+
+* summary stats
+  - mean NO3
+  - mean NO2
+  - mean NH4
+  - mean P
+* mean redfield ratio
+* plot redfield ratio
+
+
+```{r analysis, message=FALSE}
+NO3 <- mean(bg_chem$NO3)
+NO2 <- mean(bg_chem$NO2)
+NH4 <- mean(bg_chem$NH4)
+P <- mean(bg_chem$P)
+
+ratio <- ( NO3 + NO2 + NH4)/ P
+```
+
+We calculated the redfield ratio to be `r round(ratio, 2)`
+
+```{r figure, echo=FALSE}
+plot(bg_chem$P, bg_chem$NO2 + bg_chem$NO3 + bg_chem$NH4)
+```
