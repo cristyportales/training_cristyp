@@ -43,3 +43,6 @@ We calculated the redfield ratio to be `r round(ratio, 2)`
 ```{r figure, echo=FALSE}
 plot(bg_chem$P, bg_chem$NO2 + bg_chem$NO3 + bg_chem$NH4)
 ```
+
+
+- [Back to main page](index.html)
